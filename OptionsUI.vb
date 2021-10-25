@@ -3,13 +3,14 @@
 Public Class OptionsUI
 
   Public Overrides Sub LoadData(config As String)
+    If String.IsNullOrEmpty(config) Then Exit Sub
     Dim obj = DirectCast(Json.Parse(config), Json.Object)
     txtValue.Text = obj.GetString("value")
     CtlTTL1.Value = obj.GetInt("ttl")
   End Sub
 
   Public Overrides Function ValidateData() As Boolean
-    If txtValue.Text.Trim.StartsWith("v=spf") Then
+    If Not txtValue.Text.Trim.StartsWith("v=spf") Then
       MsgBox("SPF-record data must begin with 'v=spf'", MsgBoxStyle.Exclamation, "Auto SPF plug-in")
       Return False
     End If

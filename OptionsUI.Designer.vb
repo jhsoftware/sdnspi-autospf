@@ -56,7 +56,7 @@ Partial Class OptionsUI
         Me.CtlTTL1.ReadOnly = False
         Me.CtlTTL1.Size = New System.Drawing.Size(156, 21)
         Me.CtlTTL1.TabIndex = 2
-        Me.CtlTTL1.Value = 500
+        Me.CtlTTL1.Value = 300
         '
         'Label2
         '
