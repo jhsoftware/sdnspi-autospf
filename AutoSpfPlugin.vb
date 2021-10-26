@@ -10,11 +10,11 @@ Public Class AutoSpfPlugin
   Private CfgValue As String
   Private CfgTTL As Integer
 
-  Public Function GetPlugInTypeInfo() As IPlugInBase.PlugInTypeInfo Implements IPlugInBase.GetPlugInTypeInfo
+  Public Function GetPlugInTypeInfo() As IPlugInBase.PlugInTypeInfo Implements IPlugInBase.GetTypeInfo
     Return New IPlugInBase.PlugInTypeInfo With {
         .Name = "Auto SPF",
-        .Description = "Returns a TXT-record for any name that the server is authoritative for",
-        .InfoURL = "https://simpledns.plus/kb/204"
+        .Description = "Returns an SPF-record (TXT) for any name that the server is authoritative for",
+        .InfoURL = "https://simpledns.plus/plugin-autospf"
     }
   End Function
 
