@@ -25,7 +25,7 @@ Public Class AutoSpfPlugin
   End Sub
 
   Public Function LookupTXT(name As DomName, ctx As IRequestContext) As Task(Of LookupResult(Of String)) Implements ILookupTXT.LookupTXT
-    If Not ctx.AA Then Return Task.FromResult(Of LookupResult(Of String))(Nothing)
+    If Not ctx.AA OrElse name.ToString().StartsWith("_") Then Return Task.FromResult(Of LookupResult(Of String))(Nothing)
     Return Task.FromResult(New LookupResult(Of String) With {.Value = CfgValue, .TTL = CfgTTL})
   End Function
 
