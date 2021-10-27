@@ -10,8 +10,8 @@ Public Class AutoSpfPlugin
   Private CfgValue As String
   Private CfgTTL As Integer
 
-  Public Function GetPlugInTypeInfo() As IPlugInBase.PlugInTypeInfo Implements IPlugInBase.GetTypeInfo
-    Return New IPlugInBase.PlugInTypeInfo With {
+  Public Function GetPlugInTypeInfo() As TypeInfo Implements IPlugInBase.GetTypeInfo
+    Return New TypeInfo With {
         .Name = "Auto SPF",
         .Description = "Synthesize missing SPF records (TXT) for local domains",
         .InfoURL = "https://simpledns.plus/plugin-autospf"
@@ -33,20 +33,12 @@ Public Class AutoSpfPlugin
     REM do nothing
   End Sub
 
-  Public Sub LoadState(state As String) Implements IPlugInBase.LoadState
-    REM do nothing
-  End Sub
-
   Public Function InstanceConflict(config1 As String, config2 As String, ByRef errorMsg As String) As Boolean Implements IPlugInBase.InstanceConflict
     Return False
   End Function
 
   Public Function StartService() As Task Implements IPlugInBase.StartService
     Return Task.CompletedTask
-  End Function
-
-  Public Function SaveState() As String Implements IPlugInBase.SaveState
-    Return Nothing
   End Function
 
   Public Function GetOptionsUI(instanceID As Guid, dataPath As String) As JHSoftware.SimpleDNS.Plugin.OptionsUI Implements IOptionsUI.GetOptionsUI
