@@ -13,7 +13,7 @@ Public Class AutoSpfPlugin
   Public Function GetPlugInTypeInfo() As IPlugInBase.PlugInTypeInfo Implements IPlugInBase.GetTypeInfo
     Return New IPlugInBase.PlugInTypeInfo With {
         .Name = "Auto SPF",
-        .Description = "Returns an SPF-record (TXT) for any name that the server is authoritative for",
+        .Description = "Synthesize missing SPF records (TXT) for local domains",
         .InfoURL = "https://simpledns.plus/plugin-autospf"
     }
   End Function
